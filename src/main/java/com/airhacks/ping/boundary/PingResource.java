@@ -7,12 +7,13 @@ import javax.ws.rs.Path;
  *
  * @author airhacks.com
  */
-@Path("ping")
+@Path("mypath")
 public class PingResource {
 
-    @GET
-    public String ping() {
-        return "Enjoy Java EE 8!";
-    }
+	@GET
+	@Path("say_hello")
+	public String helloWorld() {
+		return "Hello, world!";
+	}
 
 }
