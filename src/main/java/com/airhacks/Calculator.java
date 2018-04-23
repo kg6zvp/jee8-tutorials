@@ -10,7 +10,15 @@ import javax.enterprise.context.RequestScoped;
  */
 @RequestScoped
 public class Calculator {
+	final private boolean shouldLog;
+
+	public Calculator(boolean shouldLog){
+		this.shouldLog = shouldLog;
+	}
+
 	public int processRequest(String expression){
+		if(shouldLog)
+			System.out.println("Expression: " + expression);
 		if(expression.contains("*")){
 			Integer[] ops = parseOperation(expression, "\\*");
 			return multiply(ops[0], ops[1]);
