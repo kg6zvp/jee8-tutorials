@@ -11,14 +11,16 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class Calculator {
 	final private boolean shouldLog;
+	ExpressionDao expDao;
 
-	public Calculator(boolean shouldLog){
+	public Calculator(boolean shouldLog, ExpressionDao expDao){
 		this.shouldLog = shouldLog;
+		this.expDao = expDao;
 	}
 
 	public int processRequest(String expression){
 		if(shouldLog)
-			System.out.println("Expression: " + expression);
+			expDao.saveToDb(expression);
 		if(expression.contains("*")){
 			Integer[] ops = parseOperation(expression, "\\*");
 			return multiply(ops[0], ops[1]);
