@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence>
+	<persistence-unit name="tutorial">
+		<properties>
+			<property name="javax.persistence.schema-generation.database.action" value="create" />
+			
+			<!-- Don't worry about these, they are there to make the tutorial easier to follow -->
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="hibernate.use_sql_comments" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>
